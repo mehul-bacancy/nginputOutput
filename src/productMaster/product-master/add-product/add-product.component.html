@@ -1,0 +1,9 @@
+<form class="form-group" [formGroup]="addDetailsForm">
+    <input type="button" name="addProduct" value="Add-Product" (click)="toggle()">
+ <ng-container *ngIf="isShow">
+    <input type="text" placeholder="title" formControlName="title">
+    <input type="number" formControlName="price">
+    <input type="number" formControlName="stock">
+    <input type="button" name="done" value="Done" (click)="addProduct($event)" [disabled]="!addDetailsForm.valid">
+</ng-container>
+</form>

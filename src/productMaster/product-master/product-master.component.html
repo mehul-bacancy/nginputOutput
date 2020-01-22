@@ -1,0 +1,42 @@
+<!-- To get product details -->
+
+<app-product-details (outputToParent)="getFromProdctDetails($event);"></app-product-details>
+
+<app-add-product [products]="products"></app-add-product>
+<br>
+<table class="table table-striped">
+  <thead>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Price</th>
+    <th>Stock</th>
+    <th>UpdateStock</th>
+    <th>TotalPrice</th>
+    <th>Delete-Product</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.id }}</td>
+      <td>{{ product.title }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.stock }}</td>
+      <td><app-stock-status [product]="product"></app-stock-status></td>
+      <td>{{product.price * product.stock}}</td>
+      <td><app-delete-product [product]="product" ></app-delete-product></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>TOTAL</td>
+        <td>{{ getSumOfPrice() }}</td>
+        <td>{{ getSumOfStock() }}</td>
+        <td></td>
+        <td>{{ getSumOfTotalPrice() }}</td>
+        <app-delete-product [isDelete]="isDelete"></app-delete-product>
+      </tr>
+  </tbody>
+</table>
+<br>
+<!-- <div>
+  <input type="button" name="delete" value="Delete-Product">
+</div> -->
+

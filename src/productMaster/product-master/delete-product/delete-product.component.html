@@ -1,0 +1,4 @@
+<input *ngIf="!isDelete" type="checkbox" ngModel [value]="product" #delete="ngModel" (change) = "checked($event)">
+<div *ngIf="isDelete" > 
+    <input type="button" name="delete" value="Delete-Product" (click)="Delete()">
+</div>
